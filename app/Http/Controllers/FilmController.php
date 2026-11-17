@@ -94,7 +94,7 @@ class FilmController extends Controller
         $films = FilmController::readFilms();
 
         if (is_null($genre)) {
-            return view('films.list', ['films' => $films, 'title' => "Listado de pelis de género"]);
+            return view('films.list', ['films' => $films, 'title' => 'Listado de pelis de género']);
         }
 
         foreach ($films as $film) {
@@ -104,5 +104,20 @@ class FilmController extends Controller
         }
 
         return view('films.list', ['films' => $films_filtered, 'title' => "Listado de pelis del genero $genre"]);
+    }
+
+
+    /**
+     * Lista todas las películas ordenadas por año (ascendente)
+     */
+    public function sortFilms()
+    {
+        $films = FilmController::readFilms();
+
+        usort($films, function ($a, $b) {
+            return $b['year'] - $a['year'] ;
+        });
+
+        return view('films.list', ['films' => $films, 'title' => 'Listado de pelis por año (ascendente)']);
     }
 }
