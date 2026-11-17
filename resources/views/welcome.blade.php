@@ -18,7 +18,6 @@
     <ul>
         <li><a href=/filmout/oldFilms>Pelis antiguas</a></li>
         <li><a href=/filmout/newFilms>Pelis nuevas</a></li>
-        <li><a href=/filmout/films>Pelis</a></li>
         <li><a href="/filmout/filmsByYear">Películas por año</a></li>
         <li><a href="/filmout/filmsByGenre">Películas por género</a></li>
     </ul>
