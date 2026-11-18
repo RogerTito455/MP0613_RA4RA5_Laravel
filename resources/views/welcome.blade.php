@@ -21,6 +21,7 @@
         <li><a href="/filmout/filmsByYear">Películas por año</a></li>
         <li><a href="/filmout/filmsByGenre">Películas por género</a></li>
         <li><a href="{{ route('filmsBySortYear') }}">Películas ordenadas ascendentemente</a></li>
+        <li><a href="{{ route('countFilms') }}">Contador de películas</a></li>
 
     </ul>
     <!-- Add Bootstrap JS and Popper.js (required for Bootstrap) -->

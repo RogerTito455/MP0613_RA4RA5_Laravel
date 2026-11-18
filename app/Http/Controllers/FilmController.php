@@ -56,7 +56,7 @@ class FilmController extends Controller
 
         foreach ($films as $film) {
             if ($film['year'] >= $year) {
-                $new_films[] = $film;
+                $new_films[] = $film; 
             }
         }
 
@@ -106,7 +106,6 @@ class FilmController extends Controller
         return view('films.list', ['films' => $films_filtered, 'title' => "Listado de pelis del genero $genre"]);
     }
 
-
     /**
      * Lista todas las películas ordenadas por año (ascendente)
      */
@@ -115,9 +114,26 @@ class FilmController extends Controller
         $films = FilmController::readFilms();
 
         usort($films, function ($a, $b) {
-            return $b['year'] - $a['year'] ;
+            return $b['year'] - $a['year'];
         });
 
         return view('films.list', ['films' => $films, 'title' => 'Listado de pelis por año (ascendente)']);
     }
+    /**
+    * Lista todas las películas ordenadas por año (ascendente)
+    */
+    public function countFilms()
+    {
+        $count = 0;
+
+        $films = FilmController::readFilms();
+
+        
+        foreach ($films as $film) {
+            $count++;
+        }
+
+        return view('films.count', ['counter' => $count, 'title' => "Cantidad de películas " . $count]);
+    }
+
 }
